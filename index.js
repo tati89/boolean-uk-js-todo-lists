@@ -14,14 +14,22 @@ and inspect the data
 - Display an alert with the username and all the todos titles that belong to that user
 */
 
+/*
+Challenge
+After you select a user, add the option to either show the todos or add a new todo
+to the list
+
+Challenge 2
+Now that you can add a todo, add the option to either delete or update a todo. Add also 
+the option to repeatedly choose a different user, or to finish the program
+*/
+
 //create a string for the alert message with ids, names and cities
 idsNamesCities = "";
 
 for (const user of users) {
   idsNamesCities += user.id + " " + user.name + " " + user.address.city + "\n";
 }
-
-console.log(idsNamesCities);
 
 //create an alert
 alert("Users: \n" + idsNamesCities);
@@ -48,7 +56,20 @@ for (const user of todos) {
 }
 
 if (found == true) {
-  alert(toDoAlertMessage);
+  const userOption = Number(
+    prompt("choose 1 to see currrent todo list or 2 to add a new task")
+  );
+  if (userOption === 1) {
+    alert(toDoAlertMessage);
+  } else {
+    toAddTask = prompt("Add todo: ");
+    todos.push({
+      userId: userInputID,
+      id: todos.length + 1,
+      title: toAddTask,
+      completed: false,
+    });
+  }
 } else {
   alert("Sorry, I can't find matching id");
 }
