@@ -49,7 +49,7 @@ for (const user of users) {
 }
 for (const user of todos) {
   if (user.userId === userInputID) {
-    if (user.completed === true) {
+    if (user.completed === false) {
       toDoAlertMessage += "-" + " " + user.title + "\n";
     }
   }
@@ -73,3 +73,5 @@ if (found == true) {
 } else {
   alert("Sorry, I can't find matching id");
 }
+
+console.log(todos);
